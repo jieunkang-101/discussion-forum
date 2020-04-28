@@ -27,6 +27,7 @@ describe('postListReducer', () => {
       timeStamp: timeStamp,
       id: id
     };
+
     expect(postListReducer({}, action)).toEqual({
       [id] : {
         author: author,
@@ -38,5 +39,39 @@ describe('postListReducer', () => {
       }
     });
   });  
+
+  test('Should successfully update only likes property of existing post data in masterPostList', () => {
+    const { author, content, tags, likes, timeStamp, id } = postData;
+
+    action = {
+      type: 'ADD_POST',
+      author: author,
+      content: content,
+      tags: tags,
+      likes: likes,
+      timeStamp: timeStamp,
+      id: id
+    };
+    
+    const newState = postListReducer({}, action);
+    action = {
+      type: 'UPVOTE_POST',
+      likes: likes,
+      id: 1
+    }
+
+    const newState2 = postListReducer(newState, action);
+
+    expect(newState2).toEqual({
+      [id] : {
+        author: author,
+        content: content,
+        tags: tags,
+        likes: 1,
+        timeStamp: timeStamp,
+        id: id
+      }
+    });
+  });
 
 });
