@@ -6,13 +6,13 @@ import PropTypes from "prop-types";
 
 class PostListControl extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   console.log(props);
-  //   this.state = {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.state = {
 
-  //   };
-  // }
+    };
+  }
 
   render(){
     return (
@@ -25,11 +25,12 @@ PostListControl.propTypes = {
   masterPostList: PropTypes.object
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {  
   return {
-    masterPostList: state.masterPostList
-  }
-}
+    masterPostList: state,
+    //selectedPost: state[id]
+  };
+};
 
 PostListControl = connect(mapStateToProps)(PostListControl);
 
