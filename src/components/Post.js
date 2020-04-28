@@ -5,11 +5,11 @@ function Post(props){
   return (
     <>
       <div>
-        <h5>{props.author}</h5>
+        <h5>Author: {props.author}</h5>
         <p>{props.content}</p>
-        <p>{props.tags}</p>
-        <p>{props.likes}</p>
-        <p>{props.timeStamp}</p>
+        <p>Tags: {props.tags}</p>
+        <p>Likes: {props.likes}</p>
+        <p>Time Stamp: {props.timeStamp}</p>
       </div>
     </>
   );
