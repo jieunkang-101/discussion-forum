@@ -7,12 +7,17 @@ function App(){
   return ( 
     <React.Fragment>
       <div className="container">
+        <br />
         <Header />
+        <br />
+        <hr />
         <div className='row'>
           <div className='col-md-6'>
+            <br />
             <PostListControl />
           </div>
           <div className='col-md-6'>
+            <br />
             <NewPostForm />
           </div>
         </div>
