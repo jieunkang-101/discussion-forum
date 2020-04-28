@@ -1,6 +1,7 @@
 import React from "react";
 import Post from './Post';
 import Upvote from './Upvote';
+import Downvote from './Downvote';
 import PropTypes from "prop-types";
 
 function PostList(props){
@@ -25,7 +26,7 @@ function PostList(props){
             <Upvote post={post}/>
           </div>
           <div className='col-sm-6'>
-            {/* <Downvote post={post}/> */}
+            <Downvote post={post}/>
           </div>
         </div> 
         <hr />  

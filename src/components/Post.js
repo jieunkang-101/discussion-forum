@@ -6,7 +6,7 @@ function Post(props){
     <>
       <div>
         <h5>Author: {props.author}</h5>
-        <p>{props.content}</p>
+        <p>content: {props.content}</p>
         <p>Tags: {props.tags}</p>
         <p>Likes: {props.likes}</p>
         <p>Time Stamp: {props.timeStamp}</p>
