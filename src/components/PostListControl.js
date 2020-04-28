@@ -1,26 +1,36 @@
 import React from 'react';
-//import NewPostForm from './NewPostForm';
 import PostList from './PostList';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 
 
-class TicketControl extends React.Component {
+class PostListControl extends React.Component {
 
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = {
+  // constructor(props) {
+  //   super(props);
+  //   console.log(props);
+  //   this.state = {
 
-    };
-  }
+  //   };
+  // }
 
   render(){
     return (
-      <PostList />
+      <PostList postList = { this.props.masterPostList } />
     );
   } 
 }   
 
+PostListControl.propTypes = {
+  masterPostList: PropTypes.object
+}
 
-export default TicketControl;  
+const mapStateToProps = state => {
+  return {
+    masterPostList: state.masterPostList
+  }
+}
+
+PostListControl = connect(mapStateToProps)(PostListControl);
+
+export default PostListControl;  

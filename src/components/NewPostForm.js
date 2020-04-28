@@ -22,7 +22,6 @@ function NewPostForm(props){
 
   return (
     <div style={{ backgroundColor: 'lightBlue', padding: '30px' }}>
-      <br />
       <h3>Post to DF</h3>
       <br />
       <form onSubmit={handleNewPostFormSubmission}>
