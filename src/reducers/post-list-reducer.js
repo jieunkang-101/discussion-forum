@@ -14,16 +14,21 @@ export default (state = {}, action) => {
     });  
   
   case 'UPVOTE_POST':
-    let newLikes = likes;
-    newLikes ++;
-    const newStateUpdate = { ...state, [id]: { ...state[id], likes: newLikes } };
-
+    let likeUp = likes;
+    likeUp ++;
+    const upvoteState = { ...state, [id]: { ...state[id], likes: likeUp } };
   // const newStateUpdate = Object.assign({}, state, {
   //   [id]: Object.assign({}, state[id], {
   //     likes: likes
   //   }),
   // });
-  return newStateUpdate;
+    return upvoteState;
+
+  case 'DOWNVOTE_POST':
+    let likeDown = likes;
+    likeDown --;
+    const downvoteState = { ...state, [id]: { ...state[id], likes: likeDown } };  
+    return downvoteState;
 
   default:
     return state;

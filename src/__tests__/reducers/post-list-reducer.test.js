@@ -7,7 +7,7 @@ describe('postListReducer', () => {
     author: 'Claire',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     tags: 'magic',
-    likes: 0,
+    likes: 5,
     timeStamp: 'Tue Apr 28 2020 11:30:26 GMT-0700 (Pacific Daylight Time)',
     id: 1
   }
@@ -40,7 +40,7 @@ describe('postListReducer', () => {
     });
   });  
 
-  test('Should successfully update only likes property of existing post data in masterPostList', () => {
+  test('Should successfully increase likes property of existing post data in masterPostList', () => {
     const { author, content, tags, likes, timeStamp, id } = postData;
 
     action = {
@@ -67,11 +67,46 @@ describe('postListReducer', () => {
         author: author,
         content: content,
         tags: tags,
-        likes: 1,
+        likes: 6,
         timeStamp: timeStamp,
         id: id
       }
     });
   });
+
+  test('Should successfully decrease likes property of existing post data in masterPostList', () => {
+    const { author, content, tags, likes, timeStamp, id } = postData;
+
+    action = {
+      type: 'ADD_POST',
+      author: author,
+      content: content,
+      tags: tags,
+      likes: likes,
+      timeStamp: timeStamp,
+      id: id
+    };
+    
+    const newState = postListReducer({}, action);
+    action = {
+      type: 'DOWNVOTE_POST',
+      likes: likes,
+      id: 1
+    }
+
+    const newState2 = postListReducer(newState, action);
+
+    expect(newState2).toEqual({
+      [id] : {
+        author: author,
+        content: content,
+        tags: tags,
+        likes: 4,
+        timeStamp: timeStamp,
+        id: id
+      }
+    });
+  });
+  
 
 });
