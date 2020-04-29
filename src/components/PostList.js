@@ -20,7 +20,6 @@ function PostList(props){
           likes={post.likes}
           key={post.id}
           id={post.id} /> 
-        
         <div className='row'>
           <div className='col-sm-6'>
             <Upvote post={post}/>

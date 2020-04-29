@@ -45,7 +45,7 @@ function NewPostForm(props){
           placeholder='Add tags; separate with comma' />
         <br />
         <br />
-        <button type='submit'>Add Post</button>
+        <button type='submit' className='btn btn-info'>Add Post</button>
       </form>
     </div>
   );
